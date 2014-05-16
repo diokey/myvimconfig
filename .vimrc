@@ -151,13 +151,31 @@ inoremap jf <esc>
  
 " create new vsplit, and switch to it.
 noremap <leader>v <C-w>v
- 
+
+" create new hsplit, and switch to it.
+noremap <leader>h <esc>:sp<CR>
+
+" more natural split opening
+set splitbelow 
+set splitright
+
 " bindings for easy split nav
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
- 
+
+"easiser moving between tabs
+map <Leader>f <esc>:tabn<CR>
+map <Leader>a <esc>:tabp<CR>
+
+" easily toogle code folds
+nnoremap f za
+
+"easier moving of code block using < and > keys for better code indentation
+vnoremap < <gv
+vnoremap > >gv 
+
 " Use sane regex's when searching
 nnoremap / /\v
 vnoremap / /\v
