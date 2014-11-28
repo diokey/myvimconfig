@@ -92,10 +92,23 @@ Bundle 'tomtom/checksyntax_vim'
 " Tag bar plugin.
 Bundle 'majutsushi/tagbar'
 
+" Handle jade templates
+Bundle "digitaltoad/vim-jade"
+
+" Vim editor for AngularJs
+Plugin 'burnettk/vim-angular'
+
+" Vim Javascript plugin
+Plugin 'othree/javascript-libraries-syntax.vim'
+
+" Making unit testing easy with Jasmine 
+Plugin 'claco/jasmine.vim'
+
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-y>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -283,3 +296,6 @@ endif
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+" Javascript autocomplete library supported
+let g:used_javascript_libs = 'underscore,backbone,jquery,angularjs,angularui'
+let g:syntastic_javascript_checkers = ['jshint']
