@@ -8,28 +8,31 @@
 set nocompatible " Fuck VI... That's for grandpas.
 filetype off     
  
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
  
 " Vundle let's you specify a plugin in a number of formats, but my favorite
 " allows you to grab plugins straight off of github, just specify the bundle
 " in the following format:
 " Bundle 'githubUsername/repoName'
- 
+
 " Let vundle manage itself:
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
+
+" Allow custom project configuration
+Plugin 'embear/vim-localvimrc'
 
 " Install NERDTree. FileSystem tree
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 
 " Much better handling of filesystem tree and file openings in tabs
-Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 " Fuzzy finder -- absolutely must have.
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
  
 " Support for easily toggling comments.
-Bundle 'tpope/vim-commentary'
+Plugin 'tpope/vim-commentary'
  
 " In addtion to the above plugins, you'll likely need some for individual
 " non-standard syntaxes that aren't pre-bundled with vim. Here are some I use,
@@ -37,66 +40,71 @@ Bundle 'tpope/vim-commentary'
 " this may differ for you.
  
 " Proper JSON filetype detection, and support.
-Bundle 'leshill/vim-json'
+Plugin 'leshill/vim-json'
  
 " vim already has syntax support for javascript, but the indent support is
 " horrid. This fixes that.
-Bundle 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
  
 " vim indents HTML very poorly on it's own. This fixes a lot of that.
-Bundle 'indenthtml.vim'
+Plugin 'indenthtml.vim'
  
 " I write markdown a lot. This is a good syntax.
-Bundle 'tpope/vim-markdown'
+Plugin 'tpope/vim-markdown'
  
 " LessCSS -- I use this every day.
-Bundle 'groenewege/vim-less'
+" Bundle 'groenewege/vim-less'
  
 " Coffee-script syntax.
-Bundle 'kchmck/vim-coffee-script'
+" Bundle 'kchmck/vim-coffee-script'
 
 " Correct Paste indentation issues
-Bundle 'sickill/vim-pasta'
+Plugin 'sickill/vim-pasta'
 
 " Utility for quickly renaming files simply use :rename or :Rename
-Bundle 'danro/rename.vim'
+Plugin 'danro/rename.vim'
 
 " Remove boring trailing whitespaces
-Bundle 'jakobwesthoff/whitespacetrail'
+Plugin 'jakobwesthoff/whitespacetrail'
 
 " Automatic surroundings
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
-" Have vim auto-close [, ), <
-Bundle 'spf13/vim-autoclose'
-
-" Use neo complete cache plugin. use neocomplete if luas is enabled.
-" Bundle 'Shougo/neocomplete.vim'
-Bundle 'Shougo/neocomplcache.vim'
-
-" Php Integration for VIM PIV Plugin
-Bundle 'spf13/PIV'
 
 " Track the engine.
-Bundle 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-Bundle 'honza/vim-snippets'
+Plugin 'honza/vim-snippets'
 
 " Syntastic code analyser
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
+
+" Use neo complete cache plugin. use neocomplete if luas is enabled.
+Plugin 'Shougo/neocomplete.vim'
+
+" necomplete companion
+" Plugin 'Shougo/neosnippet.vim'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'Shougo/neosnippet-snippets'
+" Have vim auto-close [, ), <
+Plugin 'spf13/vim-autoclose'
+
+" Php Integration for VIM PIV Plugin
+" 'Bundle 'spf13/PIV'
+
 
 " Another syntax checker
-Bundle 'tomtom/checksyntax_vim'
+"Bundle 'tomtom/checksyntax_vim'
 
 " Tag bar plugin.
-Bundle 'majutsushi/tagbar'
+" Plugin 'majutsushi/tagbar'
 
 " Handle jade templates
-Bundle "digitaltoad/vim-jade"
+" Plugin ''digitaltoad/vim-jade'
 
 " Vim editor for AngularJs
-Plugin 'burnettk/vim-angular'
+" Plugin 'burnettk/vim-angular'
 
 " Vim Javascript plugin
 Plugin 'othree/javascript-libraries-syntax.vim'
@@ -104,22 +112,27 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 " Making unit testing easy with Jasmine 
 Plugin 'claco/jasmine.vim'
 
+" let only local .vimrc be loaded without asking confirmation
+" let g:localvimrc_blacklist='.vimrc'
+
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-y>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+"let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
 " Map tag bar toogle to F8 key
-nmap <F8> :TagbarToggle<CR>
+" nmap <F8> :TagbarToggle<CR>
 
 " We have to turn this stuff back on if we want all of our features.
 filetype plugin indent on " Filetype auto-detection
 syntax on " Syntax highlighting
- 
+
+set backspace=2 "make backspace work like othe apps
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -227,60 +240,57 @@ map <C-n> :NERDTreeToggle<CR>
 " Make Ctrl n use nerd tree tabs plugin. Overwrites the above configuration
 map <Leader>n <plug>NERDTreeTabsOpen<CR>
 
-let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_open_on_console_startup = 0
 
 " Don't close comment caracter in vim files
 let g:autoclose_vim_commentmode = 1
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 "" Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
+let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Enable heavy features.
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
+let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
     \ 'scheme' : $HOME.'/.gosh_completions'
        \ }
 
 " Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-   let g:neocomplcache_keyword_patterns = {}
+if !exists('g:neocomplete#keyword_patterns')
+   let g:neocomplete#keyword_patterns = {}
 endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
+  "return neocomplete#close_popup() . "\<CR>"
      " For no inserting <CR> key.
-     return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+   return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+
+" AutoCOmplPop like behavior : autoselect
+let g:neocomplete#enable_auto_select = 1
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -290,12 +300,12 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
- let g:neocomplcache_omni_patterns = {}
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#omni#input_patterns = {}
 endif
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+" let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+" let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+" let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 " Javascript autocomplete library supported
-let g:used_javascript_libs = 'underscore,backbone,jquery,angularjs,angularui'
+let g:used_javascript_libs = 'underscore,jquery,angularjs,angularui'
 let g:syntastic_javascript_checkers = ['jshint']
