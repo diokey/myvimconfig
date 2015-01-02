@@ -90,6 +90,8 @@ Plugin 'Shougo/neosnippet-snippets'
 " Have vim auto-close [, ), <
 Plugin 'spf13/vim-autoclose'
 
+"Support for nodejs development
+Plugin 'moll/vim-node'
 " Php Integration for VIM PIV Plugin
 " 'Bundle 'spf13/PIV'
 
