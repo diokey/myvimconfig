@@ -1,5 +1,5 @@
-myvimconfig
-===========
+## myvimconfig
+
 This repo contains my current VIM set up to provide full featured IDE for Web development.
 
 It supports IDE feautures like 
@@ -23,17 +23,29 @@ The following list of languages and technology is currently fully supported by t
 * Jasmine
 * Markdown
 
+## Installation
 
-It requires bundle to be installed before actually clone this .vimrc file.
+### Requirements
 
-To install bundle follow these instructions :
+The autocomplete feature will work properly if you vim configuration is configured with Luna.
+
+To check if your vim is installed with Luna, type the following in VIM
+
+```
+echo has("lua")
+
+If it returns 1, you are good to go. If it returns 0, you can try to install vim with lua or try install my repo from the 
+
+```
+nolua branch
 
 
-https://github.com/gmarik/Vundle.vim
+You also have to install [vundle] (https://github.com/gmarik/Vundle.vim)
 
+Once vundle is installed just clone this repo
 
-Once bundle is installed just clone this repo and type in vim :PluginInstall to install all the plugns.
-
+````
+cd ~ 
 git clone https://github.com/diokey/myvimconfig.git .
 
 
@@ -44,5 +56,5 @@ It will download and install all the plugins i'm using now...
 
 I'll list the plugins i'm using very soon....
 
-If you run into an issue, just let me know ;)
+If you run into an issue, create an issue
 
