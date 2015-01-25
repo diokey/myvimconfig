@@ -33,12 +33,15 @@ To check if your vim is installed with Luna, type the following in VIM
 
 ```
 echo has("lua")
+```
+
 
 If it returns 1, you are good to go. If it returns 0, you can try to install vim with lua or try install my repo from the 
 
+
 ```
 nolua branch
-
+```
 
 You also have to install [vundle] (https://github.com/gmarik/Vundle.vim)
 
@@ -47,7 +50,7 @@ Once vundle is installed just clone this repo
 ````
 cd ~ 
 git clone https://github.com/diokey/myvimconfig.git .
-
+````
 
 Then open vim, and simply type :PluginInstall
 
