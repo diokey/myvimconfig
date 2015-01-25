@@ -1,11 +1,27 @@
 myvimconfig
 ===========
+This repo contains my current VIM set up to provide full featured IDE for Web development.
 
-My Vim IDE set up
------------------
------------------
+It supports IDE feautures like 
 
-My current VIM set up to provide full featured IDE for Webdevelopment.
+* autocompletion
+* codesnippet
+* code analysis
+* code folding / unfolding
+* autoclosing for (),[],{},'',""
+
+I'm currently using it for development of pretty much everything
+
+The following list of languages and technology is currently fully supported by this configuration but can be extended to fit your needs
+
+* Javascript
+* HTML
+* CSS
+* Node.js
+* Angular.jus 
+* JQuery
+* Jasmine
+
 
 It requires bundle to be installed before actually clone this .vimrc file.
 
