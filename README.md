@@ -10,7 +10,7 @@ It supports IDE feautures like
 * code folding / unfolding
 * autoclosing for (),[],{},'',""
 
-I'm currently using it for development of pretty much everything
+I'm currently using it for development of Javascript applications
 
 The following list of languages and technology is currently fully supported by this configuration but can be extended to fit your needs
 
@@ -21,6 +21,7 @@ The following list of languages and technology is currently fully supported by t
 * Angular.jus 
 * JQuery
 * Jasmine
+* Markdown
 
 
 It requires bundle to be installed before actually clone this .vimrc file.
