@@ -134,6 +134,7 @@ let g:UltiSnipsEditSplit="vertical"
 filetype plugin indent on " Filetype auto-detection
 syntax on " Syntax highlighting
 
+set pastetoggle=<F2> " Toogle to paste mode with F2
 set backspace=2 "make backspace work like othe apps
 set tabstop=4
 set shiftwidth=4
