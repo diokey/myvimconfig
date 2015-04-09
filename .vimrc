@@ -19,8 +19,8 @@ call vundle#rc()
 " Let vundle manage itself:
 Plugin 'gmarik/Vundle.vim'
 
-" Allow custom project configuration
-Plugin 'embear/vim-localvimrc'
+" Vim color scheme
+Plugin 'altercation/vim-colors-solarized'
 
 " Install NERDTree. FileSystem tree
 Plugin 'scrooloose/nerdtree'
@@ -38,7 +38,7 @@ Plugin 'tpope/vim-commentary'
 " non-standard syntaxes that aren't pre-bundled with vim. Here are some I use,
 " these are required for me, but depending on what code you write, obviously
 " this may differ for you.
- 
+
 " Proper JSON filetype detection, and support.
 Plugin 'leshill/vim-json'
  
@@ -92,6 +92,9 @@ Plugin 'spf13/vim-autoclose'
 
 "Support for nodejs development
 Plugin 'moll/vim-node'
+
+"Support for handlebars templates
+Plugin 'mustache/vim-mustache-handlebars'
 " Php Integration for VIM PIV Plugin
 " 'Bundle 'spf13/PIV'
 
@@ -136,9 +139,9 @@ syntax on " Syntax highlighting
 
 set pastetoggle=<F2> " Toogle to paste mode with F2
 set backspace=2 "make backspace work like othe apps
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab " use spaces instead of tabs.
 set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
@@ -162,6 +165,12 @@ set showmatch " live match highlighting
 set hlsearch " highlight matches
 set gdefault " use the `g` flag by default.
 set number " Show line numbers
+
+syntax enable
+let g:solarized_termcolors=256
+set t_Co=256
+set background=dark
+colorscheme solarized
  
 " allow the cursor to go anywhere in visual block mode.
 set virtualedit+=block
@@ -312,3 +321,4 @@ endif
 " Javascript autocomplete library supported
 let g:used_javascript_libs = 'underscore,jquery,angularjs,angularui'
 let g:syntastic_javascript_checkers = ['jshint']
+
