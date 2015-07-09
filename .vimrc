@@ -1,16 +1,16 @@
 " v0.1 2012-10-22 Philip Thrasher
-" Basics script copied from https://gist.github.com/pthrasher/3933522 
+" Basics script copied from https://gist.github.com/pthrasher/3933522
 " For this to work, you must install the vundle plugin manually.
 " https://github.com/gmarik/vundle
 " To install vundle, copy all the files from the repo into your respective
 " folders within ~/.vim
 "
 set nocompatible " Fuck VI... That's for grandpas.
-filetype off     
- 
+filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
- 
+
 " Vundle let's you specify a plugin in a number of formats, but my favorite
 " allows you to grab plugins straight off of github, just specify the bundle
 " in the following format:
@@ -30,10 +30,10 @@ Plugin 'jistr/vim-nerdtree-tabs'
 
 " Fuzzy finder -- absolutely must have.
 Plugin 'kien/ctrlp.vim'
- 
+
 " Support for easily toggling comments.
 Plugin 'tpope/vim-commentary'
- 
+
 " In addtion to the above plugins, you'll likely need some for individual
 " non-standard syntaxes that aren't pre-bundled with vim. Here are some I use,
 " these are required for me, but depending on what code you write, obviously
@@ -41,20 +41,20 @@ Plugin 'tpope/vim-commentary'
 
 " Proper JSON filetype detection, and support.
 Plugin 'leshill/vim-json'
- 
+
 " vim already has syntax support for javascript, but the indent support is
 " horrid. This fixes that.
 Plugin 'pangloss/vim-javascript'
- 
+
 " vim indents HTML very poorly on it's own. This fixes a lot of that.
 Plugin 'indenthtml.vim'
- 
+
 " I write markdown a lot. This is a good syntax.
 Plugin 'tpope/vim-markdown'
- 
+
 " LessCSS -- I use this every day.
 " Bundle 'groenewege/vim-less'
- 
+
 " Coffee-script syntax.
 " Bundle 'kchmck/vim-coffee-script'
 
@@ -65,7 +65,9 @@ Plugin 'sickill/vim-pasta'
 Plugin 'danro/rename.vim'
 
 " Remove boring trailing whitespaces
-Plugin 'jakobwesthoff/whitespacetrail'
+Plugin'ntpeters/vim-better-whitespace'
+" Auto remove whitespace on save
+autocmd FileType * autocmd BufWritePre <buffer> StripWhitespace
 
 " Automatic surroundings
 Plugin 'tpope/vim-surround'
@@ -114,7 +116,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 " Vim Javascript plugin
 Plugin 'othree/javascript-libraries-syntax.vim'
 
-" Making unit testing easy with Jasmine 
+" Making unit testing easy with Jasmine
 Plugin 'claco/jasmine.vim'
 
 " let only local .vimrc be loaded without asking confirmation
@@ -147,16 +149,16 @@ set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
 set autoindent " Match indents on new lines.
 set smartindent " Intellegently dedent / indent new lines based on rules.
- 
+
 " We have VCS -- we don't need this stuff.
 set nobackup " We have vcs, we don't need backups.
 set nowritebackup " We have vcs, we don't need backups.
 set noswapfile " They're just annoying. Who likes them?
- 
+
 " don't nag me when hiding buffers
 set hidden " allow me to have buffers with unsaved changes.
 set autoread " when a file has changed on disk, just load it. Don't ask.
- 
+
 " Make search more sane
 set ignorecase " case insensitive search
 set smartcase " If there are uppercase letters, become case-sensitive.
@@ -171,22 +173,22 @@ let g:solarized_termcolors=256
 set t_Co=256
 set background=dark
 colorscheme solarized
- 
+
 " allow the cursor to go anywhere in visual block mode.
 set virtualedit+=block
- 
+
 " leader is a key that allows you to have your own "namespace" of keybindings.
 " You'll see it a lot below as <leader>
 let mapleader = ","
- 
- 
+
+
 " So we don't have to press shift when we want to get into command mode.
 nnoremap ; :
 vnoremap ; :
- 
+
 " So we don't have to reach for escape to leave insert mode.
 inoremap jf <esc>
- 
+
 " create new vsplit, and switch to it.
 noremap <leader>v <C-w>v
 
@@ -194,7 +196,7 @@ noremap <leader>v <C-w>v
 noremap <leader>h <esc>:sp<CR>
 
 " more natural split opening
-set splitbelow 
+set splitbelow
 set splitright
 
 " bindings for easy split nav
@@ -212,37 +214,37 @@ nnoremap f za
 
 "easier moving of code block using < and > keys for better code indentation
 vnoremap < <gv
-vnoremap > >gv 
+vnoremap > >gv
 
 " Use sane regex's when searching
 nnoremap / /\v
 vnoremap / /\v
- 
+
 " Clear match highlighting
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
- 
+
 " Quick buffer switching - like cmd-tab'ing
 nnoremap <leader><leader> <c-^>
- 
- 
+
+
 " Visual line nav, not real line nav
 " If you wrap lines, vim by default won't let you move down one line to the
 " wrapped portion. This fixes that.
 noremap j gj
 noremap k gk
- 
+
 " Plugin settings:
 " Below are some 'sane' (IMHO) defaults for a couple of the above plugins I
 " referenced.
- 
+
 " Map the key for toggling comments with vim-commentary
 nnoremap <leader>c <Plug>CommentaryLine
- 
+
 " Remap ctrlp to ctrl-t -- map it however you like, or stick with the
 " defaults. Additionally, in my OS, I remap caps lock to control. I never use
 " caps lock. This is highly recommended.
 let g:ctrlp_map = '<c-o>'
- 
+
 " Let ctrlp have up to 30 results.
 let g:ctrlp_max_height = 30
 
@@ -322,3 +324,11 @@ endif
 let g:used_javascript_libs = 'underscore,jquery,angularjs,angularui'
 let g:syntastic_javascript_checkers = ['jshint']
 
+" vim powerline support
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+
+" Always show statusline
+set laststatus=2
+
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256

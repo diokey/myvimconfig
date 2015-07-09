@@ -7,8 +7,9 @@ It supports IDE feautures like
 * autocompletion
 * codesnippet
 * code analysis
-* code folding / unfolding
+* code folding / unfolding (f)
 * autoclosing for (),[],{},'',""
+* Change inside cI)
 
 I'm currently using it for development of Javascript applications
 
