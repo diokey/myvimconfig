@@ -65,7 +65,7 @@ Plugin 'sickill/vim-pasta'
 Plugin 'danro/rename.vim'
 
 " Remove boring trailing whitespaces
-Plugin'ntpeters/vim-better-whitespace'
+Plugin 'ntpeters/vim-better-whitespace'
 " Auto remove whitespace on save
 autocmd FileType * autocmd BufWritePre <buffer> StripWhitespace
 
@@ -100,6 +100,8 @@ Plugin 'mustache/vim-mustache-handlebars'
 " Php Integration for VIM PIV Plugin
 " 'Bundle 'spf13/PIV'
 
+" git Integration
+Plugin 'tpope/vim-fugitive'
 
 " Another syntax checker
 "Bundle 'tomtom/checksyntax_vim'
