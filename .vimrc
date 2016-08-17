@@ -66,7 +66,8 @@ Plugin 'danro/rename.vim'
 
 " Remove boring trailing whitespaces
 Plugin 'ntpeters/vim-better-whitespace'
-" autoremvoe trailing whitespaces on save
+
+" Auto remove whitespace on save
 autocmd FileType * autocmd BufWritePre <buffer> StripWhitespace
 
 " Automatic surroundings
@@ -99,6 +100,7 @@ Plugin 'moll/vim-node'
 Plugin 'mustache/vim-mustache-handlebars'
 " Php Integration for VIM PIV Plugin
 " 'Bundle 'spf13/PIV'
+
 " git Integration
 Plugin 'tpope/vim-fugitive'
 
@@ -335,10 +337,13 @@ endif
 let g:used_javascript_libs = 'underscore,jquery,angularjs,angularui'
 let g:syntastic_javascript_checkers = ['jshint']
 
+" vim powerline support
+" set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 
 " Always show statusline
 set laststatus=2
+
 " Use 256 colours (Use this setting only if your terminal supports 256colours)
 " set t_Co=256
 " Enable Vim ariline integration with powerline
