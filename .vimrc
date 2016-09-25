@@ -58,6 +58,13 @@ Plugin 'tpope/vim-markdown'
 " Coffee-script syntax.
 " Bundle 'kchmck/vim-coffee-script'
 
+" Type script Syntax
+Plugin 'leafgarland/typescript-vim'
+Plugin 'clausreinke/typescript-tools.vim'
+" make the QuickFix window automatically appear if :make has any errors
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
 " Correct Paste indentation issues
 Plugin 'sickill/vim-pasta'
 
@@ -66,8 +73,7 @@ Plugin 'danro/rename.vim'
 
 " Remove boring trailing whitespaces
 Plugin 'ntpeters/vim-better-whitespace'
-
-" Auto remove whitespace on save
+" autoremvoe trailing whitespaces on save
 autocmd FileType * autocmd BufWritePre <buffer> StripWhitespace
 
 " Automatic surroundings
@@ -100,7 +106,6 @@ Plugin 'moll/vim-node'
 Plugin 'mustache/vim-mustache-handlebars'
 " Php Integration for VIM PIV Plugin
 " 'Bundle 'spf13/PIV'
-
 " git Integration
 Plugin 'tpope/vim-fugitive'
 
@@ -124,6 +129,12 @@ Plugin 'claco/jasmine.vim'
 
 " Multiple cursors in vim
 Plugin 'terryma/vim-multiple-cursors'
+let g:multi_cursor_use_default_mapping=0
+" Custom mapping
+let g:multi_cursor_next_key='<c-M>'
+let g:multi_cursor_prev_key='<c-P>'
+let g:multi_cursor_skip_key='<c-X>'
+let g:multi_cursor_quit_key='<c-Q>'
 
 " Smart status bar
 Plugin 'vim-airline/vim-airline'
@@ -343,7 +354,6 @@ set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 
 " Always show statusline
 set laststatus=2
-
 " Use 256 colours (Use this setting only if your terminal supports 256colours)
 " set t_Co=256
 " Enable Vim ariline integration with powerline
