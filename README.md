@@ -2,14 +2,14 @@
 
 This repo contains my current VIM set up to provide full featured IDE for Web development.
 
-It supports IDE feautures like 
+It supports IDE feautures like
 
 * autocompletion
 * codesnippet
 * code analysis
 * code folding / unfolding (f)
 * autoclosing for (),[],{},'',""
-* Change inside cI)
+* Integration with git
 
 I'm currently using it for development of Javascript applications
 
@@ -19,7 +19,7 @@ The following list of languages and technology is currently fully supported by t
 * HTML
 * CSS
 * Node.js
-* Angular.jus 
+* Angular.js
 * JQuery
 * Jasmine
 * Markdown
@@ -37,7 +37,7 @@ echo has("lua")
 ```
 
 
-If it returns 1, you are good to go. If it returns 0, you can try to install vim with lua or try install my repo from the 
+If it returns 1, you are good to go. If it returns 0, you can try to install vim with lua or try install my repo from the
 
 
 ```
@@ -49,7 +49,7 @@ You also have to install [vundle] (https://github.com/gmarik/Vundle.vim)
 Once vundle is installed just clone this repo
 
 ````
-cd ~ 
+cd ~
 git clone https://github.com/diokey/myvimconfig.git .
 ````
 
