@@ -23,6 +23,7 @@ The following list of languages and technology is currently fully supported by t
 * JQuery
 * Jasmine
 * Markdown
+* Typescript
 
 ## Installation
 
@@ -51,6 +52,7 @@ Once vundle is installed just clone this repo
 ````
 cd ~
 git clone https://github.com/diokey/myvimconfig.git .
+cp myvimconfig/.vimrc ~/.vimrc
 ````
 
 Then open vim, and simply type :PluginInstall

@@ -59,6 +59,8 @@ Plugin 'tpope/vim-markdown'
 " Bundle 'kchmck/vim-coffee-script'
 
 " Type script Syntax
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'clausreinke/typescript-tools.vim'
 " make the QuickFix window automatically appear if :make has any errors
@@ -347,6 +349,9 @@ endif
 " Javascript autocomplete library supported
 let g:used_javascript_libs = 'underscore,jquery,angularjs,angularui'
 let g:syntastic_javascript_checkers = ['jshint']
+" Integrate Syntax with tsuquyomi for completion and Syntax
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " vim powerline support
 " set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
